@@ -122,21 +122,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // MARK: segue delgate
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        if identifier == "doSearch" {
-            if streetTextField.text == "" {
-                errorLabel.text = "Please input street"
-                return false
-            } else if cityTextField.text == "" {
-                errorLabel.text = "Please input city"
-                return false
-            } else if stateKey == "NULL" {
-                errorLabel.text = "Please select state"
-                return false
-            } else {
-                errorLabel.text = ""
-                // do request
-            }
-        }
+//        if identifier == "doSearch" {
+//            if streetTextField.text == "" {
+//                errorLabel.text = "Please input street"
+//                return false
+//            } else if cityTextField.text == "" {
+//                errorLabel.text = "Please input city"
+//                return false
+//            } else if stateKey == "NULL" {
+//                errorLabel.text = "Please select state"
+//                return false
+//            } else {
+//                errorLabel.text = ""
+//                // do request
+//            }
+//        }
         return true
     }
 }
