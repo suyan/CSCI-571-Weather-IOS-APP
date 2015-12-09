@@ -14,6 +14,9 @@
 		207F74A01C168C68006984DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 207F749E1C168C68006984DA /* LaunchScreen.storyboard */; };
 		207F74AB1C168C68006984DA /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F74AA1C168C68006984DA /* WeatherTests.swift */; };
 		207F74B61C168C68006984DA /* WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F74B51C168C68006984DA /* WeatherUITests.swift */; };
+		207F75491C17A301006984DA /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F75481C17A301006984DA /* DetailController.swift */; };
+		207F754B1C17A956006984DA /* HourTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F754A1C17A956006984DA /* HourTableViewCell.swift */; };
+		207F754D1C17B6F1006984DA /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F754C1C17B6F1006984DA /* DayTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		207F74B11C168C68006984DA /* WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		207F74B51C168C68006984DA /* WeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITests.swift; sourceTree = "<group>"; };
 		207F74B71C168C68006984DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		207F75481C17A301006984DA /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		207F754A1C17A956006984DA /* HourTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourTableViewCell.swift; sourceTree = "<group>"; };
+		207F754C1C17B6F1006984DA /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +106,10 @@
 				207F74C31C168C7C006984DA /* Supports */,
 				207F74971C168C68006984DA /* ViewController.swift */,
 				207F74991C168C68006984DA /* Main.storyboard */,
+				207F754A1C17A956006984DA /* HourTableViewCell.swift */,
 				207F749C1C168C68006984DA /* Assets.xcassets */,
+				207F75481C17A301006984DA /* DetailController.swift */,
+				207F754C1C17B6F1006984DA /* DayTableViewCell.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -268,7 +277,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				207F74981C168C68006984DA /* ViewController.swift in Sources */,
+				207F75491C17A301006984DA /* DetailController.swift in Sources */,
+				207F754D1C17B6F1006984DA /* DayTableViewCell.swift in Sources */,
 				207F74961C168C68006984DA /* AppDelegate.swift in Sources */,
+				207F754B1C17A956006984DA /* HourTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +507,7 @@
 				207F74BC1C168C68006984DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		207F74BD1C168C68006984DA /* Build configuration list for PBXNativeTarget "WeatherTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +516,7 @@
 				207F74BF1C168C68006984DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		207F74C01C168C68006984DA /* Build configuration list for PBXNativeTarget "WeatherUITests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +525,7 @@
 				207F74C21C168C68006984DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
