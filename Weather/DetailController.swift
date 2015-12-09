@@ -16,21 +16,29 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tempLabel: UILabel!
 
     var hourly = true
-    var hoursData = [
-        ["time1", "summary1", "temp1"],
-        ["time2", "summary2", "temp2"],
-        ["time3", "summary3", "temp3"]
-    ]
-    var daysData = [
-        ["date1", "summary1", "temp1"],
-        ["date2", "summary2", "temp2"],
-        ["date3", "summary3", "temp3"]
-    ]
+    var hoursData = [[String]]()
+    var daysData = [[String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hourTableView.delegate = self
         hourTableView.dataSource = self
+        // get data from data source
+        var data = WeatherData.sharedInstance.data
+        let hourly = data["hourly"] as? [AnyObject]
+        for hour in hourly! {
+            let time = hour["time"] as? String
+            let image_name = hour["image_name"] as? String
+            let temp = hour["temperature"] as? String
+            hoursData.append([time!, image_name!, temp!])
+        }
+        let daily = data["daily"] as? [AnyObject]
+        for day in daily! {
+            let date = day["week_date"] as? String
+            let image_name = day["image_name"] as? String
+            let temp = day["temperature"] as? String
+            daysData.append([date!, image_name!, temp!])
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -39,7 +47,7 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
             
             let hour = hoursData[indexPath.row]
             cell.time.text = hour[0]
-            cell.summary.image = UIImage(named: "clear")
+            cell.summary.image = UIImage(named: hour[1])
             cell.temp.text = hour[2]
             
             return cell
@@ -48,7 +56,7 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
             
             let day = daysData[indexPath.row]
             cell.dateLabel.text = day[0]
-            cell.summary.image = UIImage(named: "clear")
+            cell.summary.image = UIImage(named: day[1])
             cell.tempLabel.text = day[2]
             
             return cell
@@ -56,7 +64,11 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hoursData.count
+        if hourly == true {
+            return hoursData.count
+        } else {
+            return daysData.count
+        }
     }
     
     @IBAction func showHourly() {
