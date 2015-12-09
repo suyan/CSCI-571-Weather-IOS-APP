@@ -75,14 +75,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-hg-ZY9">
-                                <rect key="frame" x="20" y="286" width="276" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Search"/>
-                                <connections>
-                                    <segue destination="Guc-s8-q9J" kind="show" identifier="doSearch" id="Ifg-HC-bsh"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" verticalHuggingPriority="240" verticalCompressionResistancePriority="740" translatesAutoresizingMaskIntoConstraints="NO" id="TS3-fp-5xY">
                                 <rect key="frame" x="20" y="352.5" width="560" height="239.5"/>
                                 <animations/>
@@ -141,6 +133,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdy-hg-ZY9">
+                                <rect key="frame" x="20" y="286" width="276" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="validate" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFx-XY-9bX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -246,6 +246,7 @@
                         <outlet property="statePicker" destination="TS3-fp-5xY" id="p8q-g8-hHT"/>
                         <outlet property="stateTextField" destination="yhb-Ex-ert" id="ziN-2N-sKt"/>
                         <outlet property="streetTextField" destination="qmp-sP-RRA" id="9tT-7Y-uWi"/>
+                        <segue destination="Guc-s8-q9J" kind="show" identifier="showResult" id="U0O-jr-NPA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -271,10 +272,10 @@
             </objects>
             <point key="canvasLocation" x="911" y="460"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="v0a-DY-qYZ">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Guc-s8-q9J" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Guc-s8-q9J" customClass="ResultViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vqk-ew-wh5"/>
                         <viewControllerLayoutGuide type="bottom" id="eYj-Y5-kAT"/>
@@ -598,6 +599,20 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="700"/>
+                    <connections>
+                        <outlet property="chaneOfRain" destination="gye-CC-kRF" id="A3E-Qz-nk4"/>
+                        <outlet property="dewPoint" destination="wSI-0r-XMq" id="Dg8-Rf-pHQ"/>
+                        <outlet property="humidity" destination="87h-x0-F5M" id="KGx-Dl-Y6p"/>
+                        <outlet property="percipitation" destination="gQz-OL-K0Q" id="SfQ-k5-cU6"/>
+                        <outlet property="summaryImage" destination="YNX-mS-vGd" id="sIh-8n-J3b"/>
+                        <outlet property="summaryLabel" destination="0Y0-2m-Ozq" id="ogV-8p-zf4"/>
+                        <outlet property="sunrise" destination="8bH-mk-quq" id="zC5-rt-ful"/>
+                        <outlet property="sunset" destination="j2n-2F-JtS" id="0F8-CY-RW0"/>
+                        <outlet property="tempLabel" destination="zth-2u-AvY" id="HHC-zD-JRI"/>
+                        <outlet property="upperAndLower" destination="XHl-gQ-ltC" id="xhG-hI-JZK"/>
+                        <outlet property="visibility" destination="wI2-t3-Pf6" id="LdU-nL-Tq2"/>
+                        <outlet property="windSpeed" destination="EWa-ge-iVa" id="2Ur-xa-Bdn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4A8-Za-m2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -818,6 +833,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clear" width="70" height="70"/>
+        <image name="clear" width="300" height="300"/>
     </resources>
 </document>

@@ -120,24 +120,49 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.view.endEditing(true)
     }
     
-    // MARK: segue delgate
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-//        if identifier == "doSearch" {
-//            if streetTextField.text == "" {
-//                errorLabel.text = "Please input street"
-//                return false
-//            } else if cityTextField.text == "" {
-//                errorLabel.text = "Please input city"
-//                return false
-//            } else if stateKey == "NULL" {
-//                errorLabel.text = "Please select state"
-//                return false
-//            } else {
-//                errorLabel.text = ""
-//                // do request
-//            }
+    // request functions
+    @IBAction func validate() {
+//        if streetTextField.text == "" {
+//            errorLabel.text = "Please input street"
+//        } else if cityTextField.text == "" {
+//            errorLabel.text = "Please input city"
+//        } else if stateKey == "NULL" {
+//            errorLabel.text = "Please select state"
+//        } else {
+//            // do request
+//            errorLabel.text = ""
+            let urlString = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?street=3554+S+Budlong+Ave&city=Los+Angeles&state=CA&degree=f&submit="
+            get(urlString, successHandler: handleResponse)
 //        }
-        return true
+    }
+    
+    func get(url : String, successHandler: (response: String) -> Void) {
+        let url = NSURL(string: url)
+        let request = NSMutableURLRequest(URL: url!);
+        request.HTTPMethod = "GET"
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            //in case of error
+            if error != nil {
+                return
+            }
+            
+            let responseString : String = String(data: data!, encoding: NSUTF8StringEncoding)!
+            successHandler(response: responseString)
+        }
+        task.resume();
+    }
+    
+    func handleResponse(response: String) -> Void {
+        // init model
+        print(response)
+        let weatherData = WeatherData.sharedInstance
+        weatherData.data = weatherData.convertStringToDictionary(response)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.performSegueWithIdentifier("showResult", sender: self)
+        }
     }
 }
 
