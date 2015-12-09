@@ -44,6 +44,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         degreeTextField.text = degreeValues[0]
     }
     
+    func imageTapped() {
+        
+    }
+    
     @IBAction func clearForms() {
         streetTextField.text = ""
         cityTextField.text = ""
@@ -143,8 +147,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
-            
-            //in case of error
+
             if error != nil {
                 return
             }
@@ -157,7 +160,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func handleResponse(response: String) -> Void {
         // init model
-        print(response)
         let weatherData = WeatherData.sharedInstance
         weatherData.data = weatherData.convertStringToDictionary(response)
         dispatch_async(dispatch_get_main_queue()) {

@@ -19,6 +19,7 @@
 		207F754F1C17BB59006984DA /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F754E1C17BB59006984DA /* ResultViewController.swift */; };
 		207F75511C17D7EB006984DA /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F75501C17D7EB006984DA /* WeatherData.swift */; };
 		207F75531C17FB26006984DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 207F75521C17FB26006984DA /* Assets.xcassets */; };
+		207F75551C182BC6006984DA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F75541C182BC6006984DA /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		207F754E1C17BB59006984DA /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		207F75501C17D7EB006984DA /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		207F75521C17FB26006984DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		207F75541C182BC6006984DA /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				207F75481C17A301006984DA /* DetailController.swift */,
 				207F754C1C17B6F1006984DA /* DayTableViewCell.swift */,
 				207F754E1C17BB59006984DA /* ResultViewController.swift */,
+				207F75541C182BC6006984DA /* WebViewController.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				207F74961C168C68006984DA /* AppDelegate.swift in Sources */,
 				207F754B1C17A956006984DA /* HourTableViewCell.swift in Sources */,
 				207F754F1C17BB59006984DA /* ResultViewController.swift in Sources */,
+				207F75551C182BC6006984DA /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
