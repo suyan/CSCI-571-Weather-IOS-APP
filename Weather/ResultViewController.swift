@@ -53,14 +53,23 @@ class ResultViewController: UIViewController, FBSDKSharingDelegate {
         content.contentURL = NSURL(string: "http://forecast.io")
         content.contentTitle = summaryLabel.text
         content.contentDescription = self.baseSummary + ", " + tempLabel.text!
-        content.imageURL = NSURL(string: "http://cs-server.usc.edu:45678/hw/hw8/images/\(self.imageName).png");
+        content.imageURL = NSURL(string: "http://cs-server.usc.edu:45678/hw/hw8/images/\(self.imageName).png")
         
+        // solution 1, use native app
         // FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: self);
         // FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
-        let button:FBSDKShareButton = FBSDKShareButton()
-        button.frame = CGRectMake(0, 0, 0, 0)
-        button.shareContent = content
-        button.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
+
+        // solution 2, use web view, without delegate
+        // let button:FBSDKShareButton = FBSDKShareButton()
+        // button.frame = CGRectMake(0, 0, 0, 0)
+        // button.shareContent = content
+        // button.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
+
+        // solution 3, work well without cancel
+        let shareDialog: FBSDKShareDialog = FBSDKShareDialog()
+        shareDialog.shareContent = content
+        shareDialog.delegate = self
+        shareDialog.show()
     }
     
     // Facebook Delegate Methods
