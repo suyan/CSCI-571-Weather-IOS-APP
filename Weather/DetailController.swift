@@ -15,6 +15,8 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var hourTab: UIButton!
+    @IBOutlet weak var dayTab: UIButton!
 
     var hourly = true
     var hoursData = [[String]]()
@@ -111,6 +113,10 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         timeLabel.hidden = false
         summaryLabel.hidden = false
         tempLabel.hidden = false
+        hourTab.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+        dayTab.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        hourTab.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), forState: UIControlState.Normal)
+        dayTab.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forState: UIControlState.Normal)
     }
     
     @IBAction func showDaily() {
@@ -119,6 +125,11 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         timeLabel.hidden = true
         summaryLabel.hidden = true
         tempLabel.hidden = true
+        dayTab.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+        hourTab.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        dayTab.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), forState: UIControlState.Normal)
+        hourTab.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forState: UIControlState.Normal)
+        
     }
     
     

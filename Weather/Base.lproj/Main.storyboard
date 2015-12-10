@@ -756,7 +756,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQa-Ss-dWk">
                                 <rect key="frame" x="20" y="107" width="99" height="30"/>
-                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Next 24 Hours">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
@@ -766,7 +766,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLR-tu-Pek">
                                 <rect key="frame" x="127" y="107" width="82" height="30"/>
-                                <state key="normal" title="Next 7 Days"/>
+                                <state key="normal" title="Next 7 Days">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="showDaily" destination="JZY-Tr-lif" eventType="touchUpInside" id="los-cN-9y7"/>
                                 </connections>
@@ -905,7 +907,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dayTab" destination="kLR-tu-Pek" id="7Ui-dX-Cyo"/>
                         <outlet property="detailLabel" destination="ETU-u4-upH" id="pth-0w-TFX"/>
+                        <outlet property="hourTab" destination="SQa-Ss-dWk" id="sxa-r7-AfQ"/>
                         <outlet property="hourTableView" destination="rJV-t0-yDD" id="3Kc-iO-gLq"/>
                         <outlet property="summaryLabel" destination="oZm-9J-YKw" id="wtL-GB-bhY"/>
                         <outlet property="tempLabel" destination="4zj-U1-guj" id="Ce6-dm-CQJ"/>

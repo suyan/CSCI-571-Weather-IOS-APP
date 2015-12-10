@@ -55,12 +55,12 @@ class ResultViewController: UIViewController, FBSDKSharingDelegate {
         content.contentDescription = self.baseSummary + ", " + tempLabel.text!
         content.imageURL = NSURL(string: "http://cs-server.usc.edu:45678/hw/hw8/images/\(self.imageName).png");
         
-         FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: self);
+        // FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: self);
         // FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
-//        let button:FBSDKShareButton = FBSDKShareButton()
-//        button.frame = CGRectMake(0, 0, 0, 0)
-//        button.shareContent = content
-//        button.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
+        let button:FBSDKShareButton = FBSDKShareButton()
+        button.frame = CGRectMake(0, 0, 0, 0)
+        button.shareContent = content
+        button.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
     }
     
     // Facebook Delegate Methods
