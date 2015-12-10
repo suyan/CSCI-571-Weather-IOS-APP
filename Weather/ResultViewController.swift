@@ -74,17 +74,15 @@ class ResultViewController: UIViewController, FBSDKSharingDelegate {
     
     // Facebook Delegate Methods
     func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject: AnyObject]) {
-        print(results)
-        print("share success")
+        JLToast.makeText("Share completed").show()
     }
     
     func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
-        print("sharer NSError")
-        print(error.description)
+        JLToast.makeText(error.description).show()
     }
     
     func sharerDidCancel(sharer: FBSDKSharing!) {
-        print("sharerDidCancel")
+        JLToast.makeText("Share canceled").show()
     }
     
 }

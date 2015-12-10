@@ -15,5 +15,6 @@
 #import <Aeris/Aeris.h>
 #import <AerisUI/AerisUI.h>
 #import <AerisMap/AerisMap.h>
+#import <JLToast/JLToast-Swift.h>
 
 #endif /* Bridge_Header_h */

@@ -125,24 +125,24 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // request functions
     @IBAction func validate() {
-//        if streetTextField.text == "" {
-//            errorLabel.text = "Please input street"
-//        } else if cityTextField.text == "" {
-//            errorLabel.text = "Please input city"
-//        } else if stateKey == "NULL" {
-//            errorLabel.text = "Please select state"
-//        } else {
-//            // do request
-//            errorLabel.text = ""
-//            let street = streetTextField.text as String!
-//            let city = cityTextField.text as String!
-//            let state = stateKey
-//            let degree = degreeKey
-//            let urlString = "street=\(street)&city=\(city)&state=\(state)&degree=\(degree)&submit="
-//            let url = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?" + urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-            let url = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?street=3554+S+Budlong+Ave&city=Los+Angeles&state=CA&degree=f&submit="      
+        if streetTextField.text == "" {
+            errorLabel.text = "Please input street"
+        } else if cityTextField.text == "" {
+            errorLabel.text = "Please input city"
+        } else if stateKey == "NULL" {
+            errorLabel.text = "Please select state"
+        } else {
+            // do request
+            errorLabel.text = ""
+            let street = streetTextField.text as String!
+            let city = cityTextField.text as String!
+            let state = stateKey
+            let degree = degreeKey
+            let urlString = "street=\(street)&city=\(city)&state=\(state)&degree=\(degree)&submit="
+            let url = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?" + urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+//            let url = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?street=3554+S+Budlong+Ave&city=Los+Angeles&state=CA&degree=f&submit="
             get(url, successHandler: handleResponse)
-//        }
+        }
     }
     
     func get(url : String, successHandler: (response: String) -> Void) {

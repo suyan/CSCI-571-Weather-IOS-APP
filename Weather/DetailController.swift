@@ -45,6 +45,7 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
             let temp = hour["temperature"] as? String
             hoursData.append([time!, image_name!, temp!])
         }
+        hoursData.append(["", "plus", ""])
         
         // last 12 in extraHoursData
         for i in 13...24 {
@@ -95,10 +96,11 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 11 {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 12 {
             if alreadyLoad == false {
                 alreadyLoad = true
+                hoursData.removeLast()
                 for hour in extraHoursData {
                     hoursData.append(hour)
                 }
