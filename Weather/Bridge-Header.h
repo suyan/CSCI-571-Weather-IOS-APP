@@ -12,5 +12,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import <Aeris/Aeris.h>
+#import <AerisUI/AerisUI.h>
+#import <AerisMap/AerisMap.h>
 
 #endif /* Bridge_Header_h */
