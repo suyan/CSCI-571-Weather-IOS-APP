@@ -891,7 +891,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avatar" width="250" height="250"/>
+        <image name="avatar" width="460" height="460"/>
         <image name="clear" width="300" height="300"/>
         <image name="fb_icon" width="625" height="625"/>
         <image name="forecast_logo" width="468" height="200"/>

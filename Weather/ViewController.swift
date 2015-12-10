@@ -43,6 +43,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         errorLabel.text = ""
         stateTextField.text = stateValues[0]
         degreeTextField.text = degreeValues[0]
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
     }
     
     @IBAction func clearForms() {
