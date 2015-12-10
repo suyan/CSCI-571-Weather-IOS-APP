@@ -113,22 +113,54 @@
                                     <action selector="validate" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFx-XY-9bX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5t-zs-Ucf">
-                                <rect key="frame" x="430" y="540" width="150" height="40"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <state key="normal" title="FORECAST.IO">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="92f-DE-kAs" kind="show" id="QEB-w6-L2d"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN0-vI-0rX">
-                                <rect key="frame" x="479" y="510" width="101" height="21.5"/>
+                                <rect key="frame" x="479" y="493" width="101" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5t-zs-Ucf">
+                                <rect key="frame" x="430" y="522.5" width="150" height="69.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="2s9-dl-bXR"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="4uE-gr-vZ6"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="5M1-Ru-CbR"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="8tf-Pk-VZt"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="CY7-bH-Anw"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Grq-8X-ZGr"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="IdZ-Dm-0ju"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="69.5" id="LRq-bP-C42"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="P3G-as-z14"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="hGL-0N-Y7V"/>
+                                    <constraint firstAttribute="width" constant="150" id="iSE-dv-3E8"/>
+                                    <constraint firstAttribute="width" constant="150" id="kMb-Lb-5Pe"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="ord-WQ-dgy"/>
+                                    <constraint firstAttribute="height" constant="40" id="wRy-vk-5P7"/>
+                                </constraints>
+                                <state key="normal" title="FORECAST.IO" image="forecast_logo">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4uE-gr-vZ6"/>
+                                        <exclude reference="5M1-Ru-CbR"/>
+                                        <exclude reference="8tf-Pk-VZt"/>
+                                        <exclude reference="CY7-bH-Anw"/>
+                                        <exclude reference="Grq-8X-ZGr"/>
+                                        <exclude reference="IdZ-Dm-0ju"/>
+                                        <exclude reference="LRq-bP-C42"/>
+                                        <exclude reference="P3G-as-z14"/>
+                                        <exclude reference="hGL-0N-Y7V"/>
+                                        <exclude reference="kMb-Lb-5Pe"/>
+                                        <exclude reference="ord-WQ-dgy"/>
+                                        <exclude reference="wRy-vk-5P7"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="92f-DE-kAs" kind="show" id="QEB-w6-L2d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -188,7 +220,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="yhb-Ex-ert" secondAttribute="trailing" id="nai-sZ-yyt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QxE-cT-PN3" secondAttribute="trailing" id="ncD-iH-Ij0"/>
                             <constraint firstItem="qmp-sP-RRA" firstAttribute="baseline" secondItem="hg9-o3-Grd" secondAttribute="baseline" id="oGC-w7-OEB"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="b5t-zs-Ucf" secondAttribute="bottom" constant="20" id="obe-63-DV9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="b5t-zs-Ucf" secondAttribute="bottom" constant="8" symbolic="YES" id="obe-63-DV9"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TS3-fp-5xY" secondAttribute="bottom" constant="8" symbolic="YES" id="pDb-LM-g6i"/>
                             <constraint firstItem="gvi-7J-co9" firstAttribute="leading" secondItem="s9F-tW-xzo" secondAttribute="leading" id="qyh-jG-BlN"/>
                             <constraint firstItem="yhb-Ex-ert" firstAttribute="baseline" secondItem="s9F-tW-xzo" secondAttribute="baseline" id="rfw-NJ-19X"/>
@@ -230,6 +262,7 @@
                         <outlet property="degreePicker" destination="QxE-cT-PN3" id="yYd-rE-83R"/>
                         <outlet property="degreeTextField" destination="apl-Ko-TYH" id="z60-Me-tyi"/>
                         <outlet property="errorLabel" destination="tln-03-eP0" id="y7a-4f-l43"/>
+                        <outlet property="forecastButton" destination="b5t-zs-Ucf" id="r9u-e0-j5y"/>
                         <outlet property="statePicker" destination="TS3-fp-5xY" id="p8q-g8-hHT"/>
                         <outlet property="stateTextField" destination="yhb-Ex-ert" id="ziN-2N-sKt"/>
                         <outlet property="streetTextField" destination="qmp-sP-RRA" id="9tT-7Y-uWi"/>
@@ -478,6 +511,19 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sx-eU-7bd">
+                                                <rect key="frame" x="538" y="8" width="54" height="54"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="GCh-Pi-rCe"/>
+                                                    <constraint firstAttribute="width" constant="54" id="Uoe-0d-m5T"/>
+                                                </constraints>
+                                                <state key="normal" image="fb_icon">
+                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="facebookShare" destination="Guc-s8-q9J" eventType="touchUpInside" id="B3a-fP-bTu"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -534,6 +580,8 @@
                                             <constraint firstItem="NnF-4b-5Ns" firstAttribute="baseline" secondItem="EzG-qw-dlX" secondAttribute="baseline" id="p6X-OP-zdu"/>
                                             <constraint firstAttribute="trailing" secondItem="0Y0-2m-Ozq" secondAttribute="trailing" constant="20" symbolic="YES" id="pKh-RX-jpC"/>
                                             <constraint firstItem="XHl-gQ-ltC" firstAttribute="leading" secondItem="e1M-Sz-NM9" secondAttribute="leading" constant="20" id="q87-3n-H58"/>
+                                            <constraint firstItem="7Sx-eU-7bd" firstAttribute="top" secondItem="e1M-Sz-NM9" secondAttribute="top" constant="8" id="smC-Ro-D1N"/>
+                                            <constraint firstAttribute="trailing" secondItem="7Sx-eU-7bd" secondAttribute="trailing" constant="8" id="ssV-Fv-nQA"/>
                                             <constraint firstAttribute="trailing" secondItem="wSI-0r-XMq" secondAttribute="trailing" constant="20" symbolic="YES" id="t5O-Pn-rrS"/>
                                             <constraint firstItem="EWa-ge-iVa" firstAttribute="baseline" secondItem="EJ4-us-W1p" secondAttribute="baseline" id="t8N-rd-y7t"/>
                                             <constraint firstItem="EzG-qw-dlX" firstAttribute="top" secondItem="e1M-Sz-NM9" secondAttribute="top" constant="20" symbolic="YES" id="tut-Xh-7lc"/>
@@ -845,5 +893,7 @@
     <resources>
         <image name="avatar" width="250" height="250"/>
         <image name="clear" width="300" height="300"/>
+        <image name="fb_icon" width="625" height="625"/>
+        <image name="forecast_logo" width="468" height="200"/>
     </resources>
 </document>
