@@ -134,8 +134,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 //        } else {
 //            // do request
 //            errorLabel.text = ""
-            let urlString = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?street=3554+S+Budlong+Ave&city=Los+Angeles&state=CA&degree=f&submit="
-            get(urlString, successHandler: handleResponse)
+//            let street = streetTextField.text as String!
+//            let city = cityTextField.text as String!
+//            let state = stateKey
+//            let degree = degreeKey
+//            let urlString = "street=\(street)&city=\(city)&state=\(state)&degree=\(degree)&submit="
+//            let url = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?" + urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+            let url = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?street=3554+S+Budlong+Ave&city=Los+Angeles&state=CA&degree=f&submit="      
+            get(url, successHandler: handleResponse)
 //        }
     }
     

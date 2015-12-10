@@ -14,26 +14,48 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
 
     var hourly = true
     var hoursData = [[String]]()
     var daysData = [[String]]()
+    var extraHoursData = [[String]]()
+    var alreadyLoad = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hourTableView.delegate = self
         hourTableView.dataSource = self
+        
         // get data from data source
         var data = WeatherData.sharedInstance.data
+        let city = data["city"] as! String
+        let state = data["state"] as! String
+        detailLabel.text = "More Details for \(city), \(state)"
+        
         let hourly = data["hourly"] as? [AnyObject]
-        for hour in hourly! {
+        
+        // first 12 in hoursData
+        for i in 1..<13 {
+            let hour = hourly![i]
             let time = hour["time"] as? String
             let image_name = hour["image_name"] as? String
             let temp = hour["temperature"] as? String
             hoursData.append([time!, image_name!, temp!])
         }
+        
+        // last 12 in extraHoursData
+        for i in 13...24 {
+            let hour = hourly![i]
+            let time = hour["time"] as? String
+            let image_name = hour["image_name"] as? String
+            let temp = hour["temperature"] as? String
+            extraHoursData.append([time!, image_name!, temp!])
+        }
+        
         let daily = data["daily"] as? [AnyObject]
-        for day in daily! {
+        for i in 1...7 {
+            let day = daily![i]
             let date = day["week_date"] as? String
             let image_name = day["image_name"] as? String
             let temp = day["temperature"] as? String
@@ -68,6 +90,18 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
             return hoursData.count
         } else {
             return daysData.count
+        }
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 11 {
+            if alreadyLoad == false {
+                alreadyLoad = true
+                for hour in extraHoursData {
+                    hoursData.append(hour)
+                }
+                tableView.reloadData()
+            }
         }
     }
     

@@ -65,6 +65,7 @@ class ResultViewController: UIViewController, FBSDKSharingDelegate {
     
     // Facebook Delegate Methods
     func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject: AnyObject]) {
+        print(results)
         print("share success")
     }
     
