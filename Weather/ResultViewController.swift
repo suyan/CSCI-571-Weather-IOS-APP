@@ -9,7 +9,7 @@
 import UIKit
 
 class ResultViewController: UIViewController, FBSDKSharingDelegate {
-
+    
     @IBOutlet weak var summaryImage: UIImageView!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -28,6 +28,55 @@ class ResultViewController: UIViewController, FBSDKSharingDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showResult()
+        // fb delgate
+        FBSDKApplicationDelegate.self;
+    }
+    
+    @IBAction func facebookShare() {
+        let content = FBSDKShareLinkContent()
+        content.contentURL = NSURL(string: "http://forecast.io")
+        content.contentTitle = summaryLabel.text
+        content.contentDescription = self.baseSummary + ", " + tempLabel.text!
+        content.imageURL = NSURL(string: "http://cs-server.usc.edu:45678/hw/hw8/images/\(self.imageName).png")
+        
+        // solution 1, use native app
+        // FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: self);
+        // FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
+        
+        // solution 2, use web view, without delegate
+        // let button:FBSDKShareButton = FBSDKShareButton()
+        // button.frame = CGRectMake(0, 0, 0, 0)
+        // button.shareContent = content
+        // button.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
+        
+        // solution 3, work well without cancel
+        let shareDialog: FBSDKShareDialog = FBSDKShareDialog()
+        shareDialog.shareContent = content
+        shareDialog.delegate = self
+        shareDialog.show()
+    }
+    
+    // Facebook Delegate Methods
+    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject: AnyObject]) {
+        alertMessage("Share compeleted")
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+        alertMessage("Share error")
+    }
+    
+    func sharerDidCancel(sharer: FBSDKSharing!) {
+        alertMessage("Share canceled")
+    }
+    
+    func alertMessage(str: String) {
+        let alert = UIAlertController(title: "Message", message: str, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func showResult () {
         var data = WeatherData.sharedInstance.data
         self.imageName = data["image_name"]! as! String
         self.baseSummary = data["base_summary"]! as! String
@@ -43,46 +92,5 @@ class ResultViewController: UIViewController, FBSDKSharingDelegate {
         visibility.text = data["visibility"] as? String
         sunrise.text = data["sunrise"] as? String
         sunset.text = data["sunset"] as? String
-
-        // fb delgate
-        FBSDKApplicationDelegate.self;
     }
-    
-    @IBAction func facebookShare() {
-        let content = FBSDKShareLinkContent()
-        content.contentURL = NSURL(string: "http://forecast.io")
-        content.contentTitle = summaryLabel.text
-        content.contentDescription = self.baseSummary + ", " + tempLabel.text!
-        content.imageURL = NSURL(string: "http://cs-server.usc.edu:45678/hw/hw8/images/\(self.imageName).png")
-        
-        // solution 1, use native app
-        // FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: self);
-        // FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
-
-        // solution 2, use web view, without delegate
-        // let button:FBSDKShareButton = FBSDKShareButton()
-        // button.frame = CGRectMake(0, 0, 0, 0)
-        // button.shareContent = content
-        // button.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
-
-        // solution 3, work well without cancel
-        let shareDialog: FBSDKShareDialog = FBSDKShareDialog()
-        shareDialog.shareContent = content
-        shareDialog.delegate = self
-        shareDialog.show()
-    }
-    
-    // Facebook Delegate Methods
-    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject: AnyObject]) {
-        JLToast.makeText("Share completed").show()
-    }
-    
-    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
-        JLToast.makeText(error.description).show()
-    }
-    
-    func sharerDidCancel(sharer: FBSDKSharing!) {
-        JLToast.makeText("Share canceled").show()
-    }
-    
 }

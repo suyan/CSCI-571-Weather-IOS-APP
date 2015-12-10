@@ -70,7 +70,6 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         } else {
             tempLabel.text = "Temp(℃)"
         }
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -138,8 +137,5 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         hourTab.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         dayTab.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), forState: UIControlState.Normal)
         hourTab.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forState: UIControlState.Normal)
-        
     }
-    
-    
 }

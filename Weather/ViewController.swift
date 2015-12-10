@@ -131,36 +131,29 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let degree = degreeKey
             let urlString = "street=\(street)&city=\(city)&state=\(state)&degree=\(degree)&submit="
             let url = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?" + urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-//            let url = "http://csci571-suyan-env.elasticbeanstalk.com/forecast.php?street=3554+S+Budlong+Ave&city=Los+Angeles&state=CA&degree=f&submit="
-            get(url, successHandler: handleResponse)
+            
+            requestForData(url) {
+                response in
+                let weatherData = WeatherData.sharedInstance
+                weatherData.data = weatherData.convertStringToDictionary(response)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("showResult", sender: self)
+                }
+            }
         }
     }
     
-    func get(url : String, successHandler: (response: String) -> Void) {
-        let url = NSURL(string: url)
-        let request = NSMutableURLRequest(URL: url!);
+    func requestForData(url : String, callback: (response: String) -> Void) {
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!);
         request.HTTPMethod = "GET"
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
-
-            if error != nil {
-                return
-            }
-            
             let responseString : String = String(data: data!, encoding: NSUTF8StringEncoding)!
-            successHandler(response: responseString)
+            callback(response: responseString)
         }
         task.resume();
     }
     
-    func handleResponse(response: String) -> Void {
-        // init model
-        let weatherData = WeatherData.sharedInstance
-        weatherData.data = weatherData.convertStringToDictionary(response)
-        dispatch_async(dispatch_get_main_queue()) {
-            self.performSegueWithIdentifier("showResult", sender: self)
-        }
-    }
 }
 

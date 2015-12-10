@@ -30,9 +30,7 @@ class WeatherData {
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [String:AnyObject]
                 return json
-            } catch {
-                print("Something went wrong")
-            }
+            } catch {}
         }
         return nil
     }

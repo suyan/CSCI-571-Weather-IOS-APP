@@ -9,12 +9,11 @@
 #ifndef Bridge_Header_h
 #define Bridge_Header_h
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <FBSDKShareKit/FBSDKShareKit.h>
 #import <Aeris/Aeris.h>
 #import <AerisUI/AerisUI.h>
 #import <AerisMap/AerisMap.h>
-#import <JLToast/JLToast-Swift.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
 #endif /* Bridge_Header_h */
