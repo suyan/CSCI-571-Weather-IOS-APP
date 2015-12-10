@@ -64,6 +64,13 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
             let temp = day["temperature"] as? String
             daysData.append([date!, image_name!, temp!])
         }
+        
+        if data["degree"] as! String == "f" {
+            tempLabel.text = "Temp(℉)"
+        } else {
+            tempLabel.text = "Temp(℃)"
+        }
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
