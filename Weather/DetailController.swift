@@ -138,4 +138,5 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         dayTab.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), forState: UIControlState.Normal)
         hourTab.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), forState: UIControlState.Normal)
     }
+
 }
